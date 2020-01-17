@@ -9,7 +9,7 @@
     "reg": "node reg-util.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Artem Skriabnev <artskryabnev@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.2.2",
