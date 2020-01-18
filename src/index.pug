@@ -9,8 +9,121 @@ html(lang="en")
     title Portfolio | main page
   body
     .wrapper
-      .maincontent
-      h1 Week #1
-        //- +image('content/user.jpg', 'user-pic')
-        //- +icon('link', 'link-class')
-        //- .icon-bg
+      .welcome-section
+        section.hero
+          .container.hero__container
+            header.hero__header
+              .hero__logo
+                .logo ВА
+              .hero__menu
+                - var menu = ["Главная","Обо мне", "Навыки", "Работы"];
+                nav.menu
+                  ul.menu__items
+                    each item in menu
+                      li.menu__item
+                        a.menu__link #{item}
+              .hero__links
+                - var icons = ["insta", "vk", "github"];
+                ul.socials
+                  each item in icons
+                    li.socials__item
+                      a.socials__link
+                        +icon(item, "socials__icon")
+
+            .hero__content
+              .user-info
+                .user-info__desc Личный сайт
+                .user-info__username Артем Скрябнев
+            .hero__buttons
+              a.scroll-btn Скролл
+        section.about
+          .container
+            .about__container
+              .about__left
+                .user
+                  .user__avatar
+                    .avatar
+                      +image("content/user.jpg", "user pic", "avatar__image")
+                  .user__text
+                  -
+                    var rows = [
+                      ["Проживаю","Санкт-Петербург"],
+                      ["Возраст","34"],
+                      ["Родился","6 апреля 1985"],                  
+                    ]
+                  table.user__data
+                    table.user__data-table
+                      each row in rows
+                        tr.user__data-row
+                          each cell in row
+                            td #{cell}
+
+              .about__right
+              .about__welcome-text
+              .about__username
+              .about__desc
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et architecto quia perspiciatis at necessitatibus iste aut esse, minus fugiat aspernatur repellendus dolorum quidem odio nobis. Et fuga distinctio ipsam laboriosam.
+              .about__ps
+
+      section.value
+        .triangles
+          svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(points="0,0 0, 100 1000, 100")
+          svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(points="0,100 1000,100 1000,0")
+
+        .container
+          .values__title
+            .values__title-text Чем я могу помочь
+            .values__title-suptext
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut rem est aspernatur natus, laborum distinctio perspiciatis ab adipisci! Sapiente odit totam minus aut fugiat ex numquam, temporibus saepe hic molestias.
+          .values__content
+            -
+              var items = [
+                ["Frontend", ["Html5", "CSS3", "javascript", "jQuery"]],
+                ["Workflow", ["Html5", "CSS3", "javascript", "jQuery"]]
+              ];
+
+
+            ul.skills-graphic
+              each row in items
+                li.skill-graphic__item
+                  .skill-row
+                    .skrills_row__title #{row[0]}
+                    .skrills-row__content
+                      ul.skills
+                        each skill in row[1]
+                          li.skills__item
+                            .skill
+                              svg.skill__circle
+                              .skill__title #{skill}
+
+
+      section.works
+        .works__title Мои Работы
+        .works__content
+          .slider
+            .slider__display
+              img.slider__display-pic
+              .slider__display-thumbs
+                ul.slider-thumbs
+                  li.slider-thumbs__item
+                    a.slider-thumbs__link
+                      img.slider-thumbs__pic
+              .slider__buttons
+                a.direction-btn.direction-btm--next
+                a.direction-btn.direction-btm--prev
+                      
+            .slider__info
+              .slider__tags
+                ul.tags
+                  li.tags__item Html
+                  li.tags__item Css
+                  li.tags__item javascript
+              .slider__info-text
+                h3.slider__info-title
+                .slider__info-desc
+              .slider__info-btns
+                a.iconend-link Посмотреть сайт
+
+
