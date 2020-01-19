@@ -14,9 +14,9 @@ html(lang="en")
           .container.hero__container
             header.hero__header
               .hero__logo
-                .logo ВА
+                .hero__logo-text ВА
               .hero__menu
-                - var menu = ["Главная","Обо мне", "Навыки", "Работы"];
+                - var menu = ["Главная","Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
                 nav.menu
                   ul.menu__items
                     each item in menu
@@ -32,10 +32,12 @@ html(lang="en")
 
             .hero__content
               .user-info
-                .user-info__desc Личный сайт
-                .user-info__username Артем Скрябнев
-            .hero__buttons
-              a.scroll-btn Скролл
+                .user-info__desc Личный сайт <br> веб-разработчика
+                .user-info__username Артем <br> Скрябнев
+            .hero__buttons              
+              a.hero__scroll-btn 
+                .scroll__text Скролл
+                +icon("scroll", "hero__scroll-icon")
         section.about
           .container
             .about__container
@@ -47,40 +49,42 @@ html(lang="en")
                   .user__text
                   -
                     var rows = [
-                      ["Проживаю","Санкт-Петербург"],
-                      ["Возраст","34"],
-                      ["Родился","6 апреля 1985"],                  
+                      ["Проживаю:","Санкт-Петербург"],
+                      ["Возраст:","34"],
+                      ["Родился:","6 апреля 1985"],                  
                     ]
                   table.user__data
                     table.user__data-table
                       each row in rows
                         tr.user__data-row
-                          each cell in row
-                            td #{cell}
+                          td.user__data-row-name #{row[0]}
+                          td.user__data-row-value #{row[1]}
+                          //- each cell in row
+                          //-   td #{cell}
 
               .about__right
-              .about__welcome-text
-              .about__username
-              .about__desc
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et architecto quia perspiciatis at necessitatibus iste aut esse, minus fugiat aspernatur repellendus dolorum quidem odio nobis. Et fuga distinctio ipsam laboriosam.
-              .about__ps
+                .about__welcome-text Привет, меня зовут
+                .about__username Артем Скрябнев
+                .about__desc Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
 
-      section.value
         .triangles
           svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
             polygon(points="0,0 0, 100 1000, 100")
           svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
             polygon(points="0,100 1000,100 1000,0")
+      
+      section.value
 
         .container
+        
           .values__title
-            .values__title-text Чем я могу помочь
-            .values__title-suptext
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut rem est aspernatur natus, laborum distinctio perspiciatis ab adipisci! Sapiente odit totam minus aut fugiat ex numquam, temporibus saepe hic molestias.
+            .values__title-text Чем я могу быть полезен вам
+            .values__title-suptext Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
           .values__content
             -
               var items = [
-                ["Frontend", ["Html5", "CSS3", "javascript", "jQuery"]],
+                ["Front-end", ["Html5", "CSS3", "javascript", "jQuery"]],
                 ["Workflow", ["Html5", "CSS3", "javascript", "jQuery"]]
               ];
 
