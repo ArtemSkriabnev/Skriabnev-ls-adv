@@ -14,7 +14,7 @@ html(lang="ru")
           .container.hero__container
             header.hero__header
               .hero__logo
-                .hero__logo-text ВА
+                .hero__logo-text АС
               .hero__menu
                 - var menu = ["Главная","Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
                 nav.menu
@@ -78,7 +78,7 @@ html(lang="ru")
 
         .container.value__container
           .backpack
-            +image("content/backpack.png", "backpack__image")
+            //- +image("content/backpack.png", "backpack__image")
             //- +image("content/backpack.png", "backpack__image")
           .values
             .values__title
@@ -114,7 +114,7 @@ html(lang="ru")
 
 
       section.works
-        .container
+        .container.works__container
           .works__title Мои Работы
           .works__content
             .slider
@@ -130,12 +130,13 @@ html(lang="ru")
                           a.slider-thumbs__link
                             +image("content/work_prev"+item+".png", "slider-thumbs__pic")
                       //-     img.slider-thumbs__pic
+                  
                 .slider__buttons
                   a.direction-btn
                      +icon("arrow-down", "direction-arr direction-arr--next") 
                   a.direction-btn
                     +icon("arrow-down", "direction-arr direction-arr--prev") 
-                        
+              .slider__num 2
               .slider__info
                 .slider__tags
                   - var tagsN = ["HTML", "CSS", "javascript"]; 
@@ -149,6 +150,39 @@ html(lang="ru")
                   h3.slider__info-title Сайт школы образования
                   .slider__info-desc Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
                 .slider__info-btns
-                  a.iconend-link Посмотреть сайт
+                  a.slider__info-link(href="#") 
+                    +icon("link", "slider__info-link-icon") 
+                    .slider__info-link-text Посмотреть сайт
+
+    .budda-section
+      .triangles
+      section.reviews
+        .reviews-slider
+          .reviews-slider__header
+            .reviews-slider__name Что обо мне говорят
+            .reviews-slider__arrows
+          .reviews-slider__content
+            -
+              var reviews1 = [
+                ["Ковальчук Дмитрий","Основатель Loftschool", "dima", "Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты."],
+                ["Владимир Сабанцев","Преподаватель", "vova", "Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!"],
+              ];
+            ul.reviews-slider__list
+              each row in reviews1
+                li.reviews-slider__item
+                  .quote
+                  .reviews-slider__review
+                    .reviews-slider__text #{row[3]}
+                    .reviews-slider__author
+                      .reviews__avatar
+                        //- .avatar
+                        +image("content/"+row[2]+".png", "reviews__avatar-class")
+                      .author-info
+                        .author-name #{row[0]}
+                        .author-job #{row[1]}
+
+
+      section.contacts
+
 
 
