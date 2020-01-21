@@ -1,15 +1,110 @@
 
+.reviews-slider {
+  // margin-left: 50px;
+}
+
+
+.reviews-slider__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.reviews-slider__name {
+  margin-right: 50px;
+}
+
+.reviews-slider__arrows {
+  display: flex;
+}
+
+.reviews-slider__arrow {
+  border: 1px solid $text-color;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
+  
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.reviews-slider__list {
+  display: flex;
+}
+
+.reviews-slider__item {
+  display: flex;
+  margin-right: 45px;
+  
+  &:last-child {
+    margin-right: 0;
+  }
+  // width: 300px;
+}
+
+.reviews-slide__quote {
+  width: 75px;
+  height: 63px;
+  fill: $text-color;
+  opacity: .2;
+  margin-right: 20px;
+}
+
+.reviews-slider__review {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.reviews-slider__text {
+  opacity: 0.6;
+  color: $text-color;
+  font-family: "Open Sans - Semibold";
+  font-size: 16px;
+  margin-bottom: 30px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.reviews-slider__author {
+  display: flex;
+}
 
 
 
+.reviews-slider__arrow-pic {
+  width: 15px;
+  height: 12px;
+  fill: $text-color;
+  opacity: 0.5;
 
+  &:hover {
+    opacity: 1
+  }
+
+  &--left {
+    transform: rotate(180deg);  
+  }
+   
+}
 
 
 .reviews__avatar {
   width: 75px;
   height: 75px;
   border-radius: 50%;
-  overflow: hidden;  
+  overflow: hidden;
+  margin-right: 20px; 
 }
 
 .reviews__avatar-class {
@@ -18,4 +113,24 @@
   object-fit: cover;
   object-position: 0 10px;
   transform: scale(1.5);
+}
+
+.author-info {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.author-name {
+  color: $text-color;
+  font-family: "Open Sans - Semibold";
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.author-job {
+  opacity: 0.6;
+  color: $text-color;
+  font-family: "Open Sans - Semibold";
+  font-size: 16px;
 }
