@@ -156,6 +156,11 @@ html(lang="ru")
 
     .buda-section
       .triangles
+        svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+          polygon(points="0,0 1000,0 1000,100")
+        svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(points="0,0 1000,0 0,100")
+            
       .container.buda__container
         section.reviews
           .reviews-slider
@@ -191,7 +196,54 @@ html(lang="ru")
 
         section.contacts
           .contact__title.title Связаться со мной
-          form.contacts__form(action="")
+          form.form
+            .form__row
+              label.form__label
+                .form__title Введите ваше имя
+                input.form__input(placeholder="Ковальчук Дмитрий" type="text" required)
+                +icon("user", "form__icon") 
+              label.form__label
+                .form__title Введите ваш e-mail
+                input.form__input(placeholder="example@mail.ru" type="text" required)
+                +icon("envelope", "form__icon") 
+            .form__row
+              label.form__label
+                .form__title Сообщение к письму
+                textarea.form__textarea(placeholder="Требуется ваша помощь в создании сайта.\nИнтересуют сроки и цена вопроса" required)
+                +icon("message", "form__icon") 
+            button.form__btn-submit(type="submit") Отправить
+               
+        
+                //- -
+                //-   var formfills = [
+                //-     ["Введите ваше имя", "user","Ковальчук Дмитрий" ],
+                //-     ["Введите ваш e-mail", "envelope","loftschool@study.com" ],
+                //-     //- ["Сообщение к письму", "message","Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса" ],
+                //-   ];
+                //- - for (var i=0; i<=1; i++) {
+                //-   //- .form__title formfills[i][0]                
+                //- - }
+
+
+
+                //- .form__title Введите ваше имя
+                //- input.form__input
+
+    footer.footer
+      .container.footer__container
+        .footer__left
+          .footer__copyright &copy 2020
+          .footer__author Артем <br> Скрябнев
+          .footer__holder Личный сайт <br> веб-разработчика
+        .footer__right
+          .footer__nav
+          .footer__inf
+            .footer__inf-left
+              .footer__text Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+              .footer__social
+            .footer__inf-right
+              .footer__text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+              .footer__cit-author Martin Golding
           
 
 
