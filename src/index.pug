@@ -16,12 +16,20 @@ html(lang="ru")
               .hero__logo
                 .hero__logo-text ас
               .hero__menu
-                - var menu = ["Главная","Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                - 
+                  var menu = [
+                    ["Главная","promo"],
+                    ["Обо мне", "about"],
+                    ["Навыки", "skills"],
+                    ["Работы", "works"],
+                    ["Отзывы", "reviews"],
+                    ["Связаться", "contacts"],
+                  ]
                 nav.menu
                   ul.menu__items
                     each item in menu
                       li.menu__item
-                        a.menu__link(href="#") #{item}
+                        a.menu__link(href="#"+item[1]) #{item[0]}
               .hero__links
                 - var icons = ["insta", "vk", "github"];
                 ul.socials
@@ -67,6 +75,7 @@ html(lang="ru")
                 .about__username Артем Скрябнев
                 .about__desc Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
                 .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+                  
 
         .triangles
           svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
@@ -241,7 +250,7 @@ html(lang="ru")
             ul.menu__items
               each item in menu
                 li.menu__item.footer__item-color
-                  a.menu__link(href="#") #{item}  
+                  a.menu__link(href="#"+item[1]) #{item[0]}
           .footer__inf
             .footer__inf-column
               .footer__text Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
