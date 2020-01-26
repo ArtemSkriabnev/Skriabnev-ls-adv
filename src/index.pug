@@ -125,42 +125,8 @@ html(lang="ru")
         .container.works__container
           .works__title Мои Работы
           .works__content
-            .slider
-              .slider__pictures
-                .slider__display
-                  +image("content/work_big.png", "slider__display-pic")
-                  //- img.slider__display-pic
-                  .slider__display-thumbs
-                    - var prevs = ["1", "2", "3"];
-                    ul.slider-thumbs
-                      each item in prevs
-                        li.slider-thumbs__item
-                          a.slider-thumbs__link
-                            +image("content/work_prev"+item+".png", "slider-thumbs__pic")
-                      //-     img.slider-thumbs__pic
-                  
-                .slider__buttons
-                  a.direction-btn
-                     +icon("arrow-down", "direction-arr direction-arr--next") 
-                  a.direction-btn
-                    +icon("arrow-down", "direction-arr direction-arr--prev") 
-              .slider__num 2
-              .slider__info
-                .slider__tags
-                  - var tagsN = ["HTML", "CSS", "javascript"]; 
-                  ul.tags
-                    each item in tagsN
-                      li.tags__item #{item}
-                    //- li.tags__item Html
-                    //- li.tags__item Css
-                    //- li.tags__item javascript
-                .slider__info-text
-                  h3.slider__info-title Сайт школы образования
-                  .slider__info-desc Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                .slider__info-btns
-                  a.slider__info-link(href="#") 
-                    +icon("link", "slider__info-link-icon") 
-                    .slider__info-link-text Посмотреть сайт
+          #slider-component
+            
 
     .buda-section
       .triangles
