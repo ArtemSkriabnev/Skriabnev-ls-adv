@@ -1,5 +1,23 @@
 .value__container {
   display: flex;
+  position: relative;
+  justify-content: flex-end;
+  &:before {
+    content: "";
+    position: absolute;
+    background: url('~images/content/backpack.png') left bottom / contain no-repeat;
+    display: block;
+    bottom: 0;
+    height: 79%;
+    width: 69%;
+    left: 0;
+    // @include tablets {
+    //   bottom: 0;
+    //   left: 50%;
+    //   height: 300px;
+    //   transform: translateX(-50%);
+    //   background-position: center center;
+    }
   // width: 100%;
 }
 

@@ -85,8 +85,8 @@ html(lang="ru")
       
       section.value
 
-        .value__container
-          .backpack
+        .container.value__container 
+          //- .backpack
             //- +image("content/backpack.png", "backpack__image")
             //- +image("content/backpack.png", "backpack__image")
           .values
@@ -94,32 +94,31 @@ html(lang="ru")
               .values__title-text Чем я могу быть полезен вам
               .values__title-suptext Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
             .values__content
-              -
-                var items = [
-                  ["Front-end", ["Html5", "CSS3", "javascript", "jQuery и Vue.js"]],
-                  ["Workflow", ["GIT", "Terminal", "Gulp", "Webpack"]]
-                ];
-
-
-              ul.skills-graphic
-                each row in items
-                  li.skill-graphic__item
-                    .skill-row
-                      .skills_row__title #{row[0]}
-                      .skills-row__content
-                        ul.skills
-                          each skill in row[1]
-                            li.skills__item
-                              .skill
-                                <svg width="100%" height="100%" viewBox="0 0 154 154" class="donut">
-                                  <linearGradient id="linear-gradient">
-                                    <stop offset="0%" stop-color="#9300e8"/>
-                                    <stop offset="100%" stop-color="#4a00ed"/>
-                                  </linearGradient>
-                                  <circle class="donut-ring" cx="77" cy="77" r="67" fill="transparent" stroke="#e9e9e9" stroke-width="10"></circle>
-                                  <circle class="donut-segment" cx="77" cy="77" r="67" fill="transparent" stroke="url(#linear-gradient)" stroke-width="20" stroke-dasharray="105 315" stroke-dashoffset="210"></circle>
-                                </svg>
-                                .skill__title #{skill}
+              //- -
+              //-   var items = [
+              //-     ["Front-end", ["Html5", "CSS3", "javascript", "jQuery и Vue.js"]],
+              //-     ["Workflow", ["GIT", "Terminal", "Gulp", "Webpack"]]
+              //-   ];         
+              #skills-component
+              //- ul.skills-graphic
+              //-   each row in items
+              //-     li.skill-graphic__item
+              //-       .skill-row
+              //-         .skills_row__title #{row[0]}
+              //-         .skills-row__content
+              //-           ul.skills
+              //-             each skill in row[1]
+              //-               li.skills__item
+              //-                 .skill
+              //-                   <svg width="100%" height="100%" viewBox="0 0 154 154" class="donut">
+              //-                     <linearGradient id="linear-gradient">
+              //-                       <stop offset="0%" stop-color="#9300e8"/>
+              //-                       <stop offset="100%" stop-color="#4a00ed"/>
+              //-                     </linearGradient>
+              //-                     <circle class="donut-ring" cx="77" cy="77" r="67" fill="transparent" stroke="#e9e9e9" stroke-width="10"></circle>
+              //-                     <circle class="donut-segment" cx="77" cy="77" r="67" fill="transparent" stroke="url(#linear-gradient)" stroke-width="20" stroke-dasharray="105 315" stroke-dashoffset="210"></circle>
+              //-                   </svg>
+              //-                   .skill__title #{skill}
 
 
       section.works
@@ -267,3 +266,4 @@ html(lang="ru")
 
 
 
+    include ./templates/entry.pug
