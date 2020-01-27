@@ -137,35 +137,8 @@ html(lang="ru")
             
       .container.buda__container
         section.reviews
-          .reviews-slider
-            .reviews-slider__header
-              .reviews-slider__name.title Что обо мне говорят
-              .reviews-slider__arrows
-                .reviews-slider__arrow
-                  +icon("arrow-down", "reviews-slider__arrow-pic reviews-slider__arrow-pic--left")
-                .reviews-slider__arrow
-                  +icon("arrow-down", "reviews-slider__arrow-pic")
-              
-            .reviews-slider__content
-              -
-                var reviews1 = [
-                  ["Ковальчук Дмитрий","Основатель Loftschool", "dima", "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"],
-                  ["Владимир Сабанцев","Преподаватель", "vova", "Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!"],
-                ];
-              ul.reviews-slider__list
-                each row in reviews1
-                  li.reviews-slider__item
-                    .reviews-slide__quote
-                      +icon("quote", "reviews-slider__quote-pic")
-                    .reviews-slider__review
-                      .reviews-slider__text #{row[3]}
-                      .reviews-slider__author
-                        .reviews__avatar
-                          //- .avatar
-                          +image("content/"+row[2]+".png", "reviews__avatar-class")
-                        .author-info
-                          .author-name #{row[0]}
-                          .author-job #{row[1]}
+          #reviews-slider-component
+
 
 
         section.contacts
