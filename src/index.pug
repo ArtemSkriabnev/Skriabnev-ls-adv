@@ -1,7 +1,7 @@
 include ./mixins.pug
 
 <!DOCTYPE html>
-html(lang="en")
+html(lang="ru")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
@@ -9,8 +9,200 @@ html(lang="en")
     title Portfolio | main page
   body
     .wrapper
-      .maincontent
-      h1 Week #1
-        //- +image('content/user.jpg', 'user-pic')
-        //- +icon('link', 'link-class')
-        //- .icon-bg
+      .welcome-section
+        section.hero
+          .container.hero__container
+            header.hero__header
+              .hero__logo
+                .hero__logo-text ас
+              .hero__menu
+                - 
+                  var menu = [
+                    ["Главная","promo"],
+                    ["Обо мне", "about"],
+                    ["Навыки", "skills"],
+                    ["Работы", "works"],
+                    ["Отзывы", "reviews"],
+                    ["Связаться", "contacts"],
+                  ]
+                nav.menu
+                  ul.menu__items
+                    each item in menu
+                      li.menu__item
+                        a.menu__link(href="#"+item[1]) #{item[0]}
+              .hero__links
+                - var icons = ["insta", "vk", "github"];
+                ul.socials
+                  each item in icons
+                    li.socials__item
+                      a.socials__link(target="_blank" href="#")
+                        +icon(item, "socials__icon")
+
+            .hero__content
+              .user-info
+                .user-info__desc Личный сайт <br> веб-разработчика
+                .user-info__username Артем <br> Скрябнев
+            .hero__buttons              
+              a.hero__scroll-btn 
+                .scroll__text Скролл
+                +icon("scroll", "hero__scroll-icon")
+        section.about
+          .container
+            .about__container
+              .about__left
+                .user
+                  .user__avatar
+                    .avatar
+                      +image("content/user.jpg", "avatar__image")
+                  .user__text
+                  -
+                    var rows = [
+                      ["Проживаю:","Санкт-Петербург"],
+                      ["Возраст:","34"],
+                      ["Родился:","6 апреля 1985"],                  
+                    ]
+                  table.user__data
+                    table.user__data-table
+                      each row in rows
+                        tr.user__data-row
+                          td.user__data-row-name #{row[0]}
+                          td.user__data-row-value #{row[1]}
+                          //- each cell in row
+                          //-   td #{cell}
+
+              .about__right
+                .about__welcome-text Привет, меня зовут
+                .about__username Артем Скрябнев
+                .about__desc Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+                  
+
+        .triangles
+          svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(points="0,0 0, 100 1000, 100")
+          svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(points="0,100 1000,100 1000,0")
+      
+      section.value
+
+        .container.value__container 
+          //- .backpack
+            //- +image("content/backpack.png", "backpack__image")
+            //- +image("content/backpack.png", "backpack__image")
+          .values
+            .values__title
+              .values__title-text Чем я могу быть полезен вам
+              .values__title-suptext Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            .values__content
+              //- -
+              //-   var items = [
+              //-     ["Front-end", ["Html5", "CSS3", "javascript", "jQuery и Vue.js"]],
+              //-     ["Workflow", ["GIT", "Terminal", "Gulp", "Webpack"]]
+              //-   ];         
+              #skills-component
+              //- ul.skills-graphic
+              //-   each row in items
+              //-     li.skill-graphic__item
+              //-       .skill-row
+              //-         .skills_row__title #{row[0]}
+              //-         .skills-row__content
+              //-           ul.skills
+              //-             each skill in row[1]
+              //-               li.skills__item
+              //-                 .skill
+              //-                   <svg width="100%" height="100%" viewBox="0 0 154 154" class="donut">
+              //-                     <linearGradient id="linear-gradient">
+              //-                       <stop offset="0%" stop-color="#9300e8"/>
+              //-                       <stop offset="100%" stop-color="#4a00ed"/>
+              //-                     </linearGradient>
+              //-                     <circle class="donut-ring" cx="77" cy="77" r="67" fill="transparent" stroke="#e9e9e9" stroke-width="10"></circle>
+              //-                     <circle class="donut-segment" cx="77" cy="77" r="67" fill="transparent" stroke="url(#linear-gradient)" stroke-width="20" stroke-dasharray="105 315" stroke-dashoffset="210"></circle>
+              //-                   </svg>
+              //-                   .skill__title #{skill}
+
+
+      section.works
+        .container.works__container
+          .works__title Мои Работы
+          .works__content
+          #slider-component
+            
+
+    .buda-section
+      .triangles
+        svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+          polygon(points="0,0 1000,0 1000,100")
+        svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(points="0,0 1000,0 0,100")
+            
+      .container.buda__container
+        section.reviews
+          #reviews-slider-component
+
+
+
+        section.contacts
+          .contact__title.title Связаться со мной
+          form.form
+            .form__row
+              label.form__label
+                .form__title Введите ваше имя
+                input.form__input(placeholder="Ковальчук Дмитрий" type="text" required)
+                +icon("user", "form__icon") 
+              label.form__label
+                .form__title Введите ваш e-mail
+                input.form__input(placeholder="example@mail.ru" type="text" required)
+                +icon("envelope", "form__icon") 
+            .form__row
+              label.form__label
+                .form__title Сообщение к письму
+                textarea.form__textarea(placeholder="Требуется ваша помощь в создании сайта.\nИнтересуют сроки и цена вопроса" required)
+                +icon("message", "form__icon") 
+            button.form__btn-submit(type="submit") Отправить
+               
+        
+                //- -
+                //-   var formfills = [
+                //-     ["Введите ваше имя", "user","Ковальчук Дмитрий" ],
+                //-     ["Введите ваш e-mail", "envelope","loftschool@study.com" ],
+                //-     //- ["Сообщение к письму", "message","Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса" ],
+                //-   ];
+                //- - for (var i=0; i<=1; i++) {
+                //-   //- .form__title formfills[i][0]                
+                //- - }
+
+
+
+                //- .form__title Введите ваше имя
+                //- input.form__input
+
+    footer.footer
+      .container.footer__container
+        .footer__left
+          .footer__copyright &copy 2020
+          .footer__author Артем <br> Скрябнев
+          .footer__author-text Личный сайт <br> веб-разработчика
+        .footer__right
+          //- .footer__nav
+          nav.menu
+            ul.menu__items
+              each item in menu
+                li.menu__item.footer__item-color
+                  a.menu__link(href="#"+item[1]) #{item[0]}
+          .footer__inf
+            .footer__inf-column
+              .footer__text Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+              .footer__social
+                ul.socials
+                  each item in icons
+                    li.socials__item-footer
+                      a.socials__link
+                        +icon(item, "socials__icon--footer")
+            .footer__inf-column
+              .footer__text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+              .footer__cit-author Martin Golding
+          
+
+
+
+    include ./templates/entry.pug

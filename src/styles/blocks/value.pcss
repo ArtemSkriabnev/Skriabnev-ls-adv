@@ -1,0 +1,130 @@
+.value__container {
+  display: flex;
+  position: relative;
+  justify-content: flex-end;
+  &:before {
+    content: "";
+    position: absolute;
+    background: url('~images/content/backpack.png') left bottom / contain no-repeat;
+    display: block;
+    bottom: 0;
+    height: 79%;
+    width: 69%;
+    left: 0;
+    // @include tablets {
+    //   bottom: 0;
+    //   left: 50%;
+    //   height: 300px;
+    //   transform: translateX(-50%);
+    //   background-position: center center;
+    }
+  // width: 100%;
+}
+
+.backpack {
+  background-image: url("../images/content/backpack.png");  
+  background-repeat: no-repeat;
+  // background-size: contain;
+  background-position-x: 70%;
+  background-position-y: bottom;
+  // position: relative;
+  width: 30%;
+}
+
+.values {
+  width: 60%;
+  // background-image: url("../images/content/backpack.png");  
+  // background-repeat: no-repeat;
+  // // background-size: contain;
+  // background-position-x: 0;
+  // background-position-y: 0;
+}
+
+.backpack__image {
+  // width: 100%;
+  // position: absolute;
+  // left: -50px;
+  // bottom: 0;
+}
+
+.values__content{
+  margin-left: 90px;
+}
+.values__title-text {
+  color: $text-color;
+  font-family: "Open Sans";
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 55px;
+}
+
+.values__title-suptext {
+  opacity: 0.5;
+  color: $text-color;
+  font-family: "Open Sans - Semibold";
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 96px;
+}
+
+.skills {
+  margin-top: 40px;
+  // margin-bottom: 40px;
+}
+
+.skill-graphic__item {
+  margin-bottom: 40px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.skills__item {
+  margin-right: 30px;
+  width: 154px;
+  height: 154px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.skills_row__title {
+  color: $text-color;
+  font-family: "Open Sans";
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+.skill__shape {
+  width: 200px;
+  height: 200px;
+  fill: transparent;
+  stroke: red;
+  stroke-width: 4px;
+}
+
+.skills {
+  display: flex;
+  // position: relative;
+}
+
+.skill {
+  position: relative;
+}
+
+.skill__title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  opacity: 0.5;
+  color: $text-color;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: bold;  
+  padding: 0 25px;
+}
