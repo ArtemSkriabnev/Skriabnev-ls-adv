@@ -10,6 +10,17 @@ html(lang="ru")
   body
     .wrapper
       .welcome-section
+        section.parallax
+            - var dataspeed = ["0.0", "0.0", "0.25", "0.16", "0.07", "0.04", "0.0"]
+            //- .parallax__layer(data-speed="0.1")
+            //-   +image("parallax1/1.jpg", "parallax__image")
+            //- .parallax__layer(data-speed="0.1")
+            //-   +image("parallax1/2.png", "parallax__image")
+            - for (var i = 1; i <= 7; i++)
+              .parallax__layer(data-speed=dataspeed[i-1])
+                picture
+                  //- source(srcset=require(`images/parallax/${i}_2560.${i === 1 ? 'jpg' : 'png'}`) media="(min-width: 1920px)").parallax__image
+                  img(srcset=require(`images/parallax1/${i}.${i === 1 ? 'jpg' : 'png'}`)).parallax__image
         section.hero
           .container.hero__container
             header.hero__header
@@ -129,6 +140,18 @@ html(lang="ru")
             
 
     .buda-section
+      section.parallax
+            - var dataspeed2 = ["0.0", "0.2", "0.3", "0.2", "0.2"]
+            //- .parallax__layer(data-speed="0.1")
+            //-   +image("parallax1/1.jpg", "parallax__image")
+            //- .parallax__layer(data-speed="0.1")
+            //-   +image("parallax1/2.png", "parallax__image")
+            - for (var i = 1; i <= 5; i++)
+              .parallax__layer2(data-speed=dataspeed2[i-1]) 
+                picture
+                  //- source(srcset=require(`images/parallax1/${i}_2560.${i === 1 ? 'jpg' : 'png'}`) media="(min-width: 1920px)").parallax__image
+                  //- img(srcset=require(`images/parallax2/${i}.${i === 1 ? 'jpg' : 'png'}`)).parallax__image
+                  img(srcset=require(`images/parallax2/${i}.png`)).parallax__image
       .triangles
         svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
           polygon(points="0,0 1000,0 1000,100")
