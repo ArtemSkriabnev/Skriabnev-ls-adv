@@ -1,0 +1,118 @@
+.fullscreen-menu {
+  display: none;
+  flex-direction: column;
+  // justify-content: space-between;
+  position: fixed;
+  padding-top: 10px;
+  top: 0;
+  bottom: 0;
+  // left: 0;
+  width: 320px;
+  right: 0;
+  background-color: white;
+  // color: $white;
+  z-index: 20;
+  opacity: 0;
+
+  @include phones {
+  	width: 100%;
+  }
+	// 
+}
+
+// .fullscreen-menu__logo{
+//   width: 86px;
+//   height: 64px;
+// }
+
+.fullscreen-menu-nav__list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  margin-left: 70px;
+  // align-items: center;
+  // align-self: center;
+}
+
+.fullscreen-menu-nav__item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  // align-items: center;
+  // margin-right: 18px;
+ 
+  // @include tablets {
+	// 	display: none;
+	// }
+
+  // &:after {
+  //   content: "";
+  //   width: rem(5px);
+  //   height: rem(5px);
+  //   background-color: $white;
+  //   border-radius: 50%;
+  //   display: block;
+  //   margin: rem(15px) 0;
+  // }
+
+  // &:nth-last-child(1) {
+  //   &:after {
+  //     display: none;
+  //   }
+  // }
+}
+
+.fullscreen-menu-nav__link {
+  text-decoration: none;
+  // color: $white; 
+  // font-size: rem(14px);
+  // text-transform: uppercase;
+  transition: 0.5s;
+  white-space: nowrap;
+
+  &:hover {
+    color: blue;
+  }
+  
+}
+
+.fullscreen-menu__close {
+  display: flex;
+  justify-content: flex-end;
+  // width: 25px;
+  // height: 25px;
+
+  margin-top: 65px;
+  margin-right: 50px;
+  
+  // transform: rotate(45deg);
+  
+}
+
+.fullscreen-menu__close-icon {
+  width: 20px;
+  height: 3px;
+  background-color: $text-color;
+  // border-radius: 50%;
+  position: relative;
+  transform: rotate(45deg);
+ 
+  
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 4px;
+    height: 20px;
+    background-color: $text-color;
+    // border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.fullscreen__socials {
+  margin-top: 70px;
+  margin-left: 50px;
+}

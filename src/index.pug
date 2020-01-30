@@ -10,7 +10,7 @@ html(lang="ru")
   body
     .wrapper
       .welcome-section
-        section.parallax
+        section.parallax.parallax__mountains
             - var dataspeed = ["0.0", "0.0", "0.25", "0.16", "0.07", "0.04", "0.0"]
             //- .parallax__layer(data-speed="0.1")
             //-   +image("parallax1/1.jpg", "parallax__image")
@@ -48,6 +48,10 @@ html(lang="ru")
                     li.socials__item
                       a.socials__link(target="_blank" href="#")
                         +icon(item, "socials__icon")
+                .nav__ham-menu
+                  - for (var i = 1; i <= 3; i++)
+                    .nav__menu-line
+
 
             .hero__content
               .user-info
@@ -224,7 +228,21 @@ html(lang="ru")
             .footer__inf-column
               .footer__text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
               .footer__cit-author Martin Golding
-          
+
+    .fullscreen-menu
+      .fullscreen-menu__close
+        .fullscreen-menu__close-icon
+      ul.fullscreen-menu-nav__list
+        each item in menu
+          li.fullscreen-menu-nav__item
+            a.fullscreen-menu-nav__link(href="#"+item[1]) #{item[0]}
+      ul.socials.fullscreen__socials
+        each item in icons
+          li.socials__item
+            a.socials__link(target="_blank" href="#")
+              +icon(item, "socials__icon")
+      
+            
 
 
 
