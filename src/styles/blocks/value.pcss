@@ -2,6 +2,9 @@
   display: flex;
   position: relative;
   justify-content: flex-end;
+  @include tablets {
+    padding-bottom: 350px;
+  }
   &:before {
     content: "";
     position: absolute;
@@ -10,14 +13,15 @@
     bottom: 0;
     height: 79%;
     width: 69%;
-    left: 0;
-    // @include tablets {
-    //   bottom: 0;
-    //   left: 50%;
-    //   height: 300px;
-    //   transform: translateX(-50%);
-    //   background-position: center center;
-    }
+    left: -15%;
+      @include tablets {
+        bottom: 0;
+        left: 50%;
+        height: 300px;
+        transform: translateX(-50%);
+        background-position: center center;
+      }
+    } 
   // width: 100%;
 }
 
@@ -32,12 +36,17 @@
 }
 
 .values {
-  width: 60%;
+  width: 65%;
+  @include tablets {
+    width: 100%;
+    padding: 0 15px;
+  }
   // background-image: url("../images/content/backpack.png");  
   // background-repeat: no-repeat;
   // // background-size: contain;
   // background-position-x: 0;
   // background-position-y: 0;
+
 }
 
 .backpack__image {
@@ -47,8 +56,18 @@
   // bottom: 0;
 }
 
+.values__title {
+  @include tablets {
+    text-align: center;
+  }
+}
+
 .values__content{
-  margin-left: 90px;
+  // margin-left: 90px;
+
+  @include tablets {
+    margin-left: 0;
+  }
 }
 .values__title-text {
   color: $text-color;
@@ -80,9 +99,14 @@
   }
 }
 .skills__item {
-  margin-right: 30px;
+  margin-left: 5px;
   width: 154px;
   height: 154px;
+
+  @include tablets {
+    width: 135px;
+    height: 135px;
+  }
 
   &:last-child {
     margin-right: 0;
@@ -94,6 +118,10 @@
   font-family: "Open Sans";
   font-size: 24px;
   font-weight: bold;
+
+  @include tablets {
+   text-align: center; 
+  }
 }
 
 
@@ -107,6 +135,8 @@
 
 .skills {
   display: flex;
+  flex-wrap: wrap;
+  // justify-content: center;
   // position: relative;
 }
 

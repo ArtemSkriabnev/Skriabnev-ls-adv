@@ -5,7 +5,8 @@ script(type="text/x-template")#reviews-slider
     slheader(
       @slide="handleSlide",
       :currentIndex="currentIndex",
-      :works="works"
+      :works="works",
+      :slidesPerPage="slidesPerPage"
     )
 
       
@@ -23,7 +24,7 @@ script(type="text/x-template")#reviews-slider
         //- each row in reviews1
         //- li.reviews-slider__item
         li.reviews-slider__item(
-          v-for="n in 2"
+          v-for="n in slidesPerPage"
         )
           .reviews-slide__quote
             +icon("quote", "reviews-slider__quote-pic")
@@ -42,11 +43,13 @@ script(type="text/x-template")#reviews-slider__header
   .reviews-slider__header
     .reviews-slider__name.title Что обо мне говорят
     .reviews-slider__arrows
-      a(href="#" @click.prevent="$emit('slide', 'prev')").reviews-slider__arrow(
+      button(type="button" @click="$emit('slide', 'prev')").reviews-slider__arrow(
         :class="{unactive: currentIndex === 0 }"
+        :disabled="currentIndex === 0"
       )
         +icon("arrow-down", "reviews-slider__arrow-pic reviews-slider__arrow-pic--left")
-      a(href="#" @click.prevent="$emit('slide', 'next')").reviews-slider__arrow(
-        :class="{unactive: currentIndex === works.length-2 }"
+      button(type="button" @click="$emit('slide', 'next')").reviews-slider__arrow(
+        :class="{unactive: currentIndex === works.length - slidesPerPage }"
+        :disabled="currentIndex === works.length - slidesPerPage"
       )
         +icon("arrow-down", "reviews-slider__arrow-pic")                  

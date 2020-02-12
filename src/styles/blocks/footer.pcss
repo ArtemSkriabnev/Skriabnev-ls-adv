@@ -7,14 +7,40 @@
 
 .footer__container {
   display: flex;
+
+  @include phones {
+    flex-direction: column;
+  }
 }
 
 .footer__left {
-  width: 30%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  @include tablets {
+    width: 30%;
+  }
+
+  @include phones {
+    width: 100%;
+    margin-bottom: 35px;
+  }
   // margin-top: 100px;
+}
+
+.footer__right {
+  width: 75%;
+
+  @include tablets {
+    width: 60%;
+  }
+
+  @include phones {
+    width: 100%;
+  }
+  
 }
 
 .footer__copyright {
@@ -30,6 +56,13 @@
   font-weight: 700;
   line-height: 30px;
   text-transform: uppercase;
+
+  @include phones {
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+
+
 }
 
 .footer__author-text {
@@ -47,17 +80,27 @@
   margin-bottom: 20px;
 }
 
-.footer__item-color {
-  color: white;
-}
+
 
 .footer__inf {
   display: flex;
   justify-content: space-between;
+
+  @include tablets {
+    flex-direction: column;
+  }
 }
 
 .footer__inf-column {
-  width: 45%;;
+  width: 45%;
+
+  @include tablets {
+    width: 85%;
+  }
+
+  @include phones {
+    width: 100%;
+  }
 }
 
 .footer__cit-author {

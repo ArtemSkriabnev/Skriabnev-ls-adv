@@ -1,6 +1,7 @@
 
 .reviews {
   margin-top: 100px;
+  // display: none;
 }
 
 
@@ -13,10 +14,22 @@
   display: flex;
   align-items: center;
   margin-bottom: 40px;
+
+  @include phones {
+    flex-direction: column;
+  }
 }
 
 .reviews-slider__name {
   margin-right: 50px;
+  
+  @include tablets {
+    margin-right: 15px;
+  }
+
+  @include phones {
+    margin-bottom: 15px;
+  }
 }
 
 .reviews-slider__arrows {
@@ -32,10 +45,12 @@
   justify-content: center;
   align-items: center;
   margin-right: 20px;
+  // cursor: pointer;
 
   
 
-  &:hover {
+  &:hover,
+  &:focus  {
     cursor: pointer;
     opacity: 0.5;
   }
@@ -52,6 +67,11 @@
 .reviews-slider__list {
   display: flex;
   justify-content: flex-start;
+
+  @include tablets {
+    justify-content: center;
+  }
+  
 }
 
 .reviews-slider__item {
@@ -60,6 +80,10 @@
   
   &:last-child {
     margin-right: 0;
+  }
+
+  @include phones {
+
   }
   // width: 300px;
 }
@@ -70,6 +94,10 @@
   fill: $text-color;
   opacity: .2;
   margin-right: 20px;
+
+  @include tablets {
+    display: none;
+  }
 }
 
 .reviews-slider__review {

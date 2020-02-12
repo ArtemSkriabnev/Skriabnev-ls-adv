@@ -8,16 +8,31 @@
 .about__container {
   display: flex;
   justify-content: space-between;
+
+  @include phones {
+    flex-direction: column;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
 }
 
 .about__left {
-  width: 30%;
+  width: 35%;
+
+  @include phones {
+    width: 100%;
+    margin-bottom: 50px;
+  }
   
 
 }
 
 .about__right {
-  width: 60%;
+  width: 55%;
+
+  @include phones {
+    width: 100%;
+  }
 }
 
 .about__welcome-text {
@@ -45,6 +60,10 @@
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 105px;
+
+    @include phones {
+      margin-bottom: 50px;
+    }
   }
 
   .about__ps {

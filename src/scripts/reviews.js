@@ -4,7 +4,8 @@ const slheader = {
   template: "#reviews-slider__header",
   props: {
     works: Array,
-    currentIndex: Number
+    currentIndex: Number,
+    slidesPerPage: Number
   }
 };
 
@@ -22,7 +23,8 @@ new Vue ({
   data() {
     return {
       works: [],
-      currentIndex: 0
+      currentIndex: 0,
+      slidesPerPage: 2
     };
   },
 
@@ -47,6 +49,8 @@ new Vue ({
       switch(direction) {
         case "next":
           this.currentIndex++;
+          console.log(this.currentIndex);
+          console.log(this.works.length - 1);
           break;
         case "prev":
           this.currentIndex--;
@@ -54,11 +58,22 @@ new Vue ({
       }
     },
     makeEndOfLoop(value) {
-      const workQty = this.works.length - 1;
+      const workQty = this.works.length - (this.slidesPerPage - 1);
       // console.log(workQty);
       // console.log(value);
       if (value > workQty-1) this.currentIndex = workQty-1;
       if (value < 0) this.currentIndex = 0;
+    },
+    calcSlidesPerPage() {
+      const calc = () => {
+        this.slidesPerPage = window.innerWidth <= 480 ? 1:2;
+      }
+
+      calc();
+
+      // window.addEventListener("resize", calc);
+
+      console.log(this.slidesPerPage);
     }
 
   },
@@ -72,8 +87,13 @@ new Vue ({
   created() {
     const data = require("../data/reviews.json");
     this.works = this.makeImagesArray(data);
-    // this.works = data;
+    window.addEventListener("resize", this.calcSlidesPerPage()); 
+    window.addEventListener("resize", this.calcSlidesPerPage); 
+    // почему, чтобы срабатывало при заргрузке нужно со скобками, а чтобы слушал - без скобок.
+  },
 
-  }
+  // mounted() {
+  //   window.addEventListener("resize", this.calcSlidesPerPage); //я так толком и не понял, как это работает, 
+  // }
 
 })

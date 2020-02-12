@@ -1,18 +1,31 @@
 .form {
   padding-right: 150px;
+  @include tablets {
+    padding-right: 0;
+    text-align: center;
+  }
 }
 
 .form__row {
   display: flex;
   margin-bottom: 30px;
+  @include phones{
+    flex-direction: column;
+  }
 }
 
 .form__label {
   display: flex;
   flex-direction: column;
   flex: 1;
-  margin-right: 95px;
+  margin-right: 45px;
   position: relative;
+  align-items: flex-start;
+
+  @include phones{
+    margin-right: 0;
+    align-items: center;
+  }
 
   &:last-child {
     margin-right: 0;
@@ -34,6 +47,12 @@
   border-bottom: 1px solid black;
   padding: 20px 40px;
   font-weight: 600;
+
+  @include phones{
+    width: 90%;
+    padding: 20px 0;
+    text-align: center;
+  }
 }
 
 
@@ -44,6 +63,10 @@
   position: absolute;
   bottom: 19%;
   left: 0;
+ 
+  @include tablets{
+    display: none;
+  }
 }
 
 .form__textarea {
@@ -53,6 +76,11 @@
   font-weight: 600;
   border-bottom: 1px solid $text-color;
   background: transparent;
+  
+  @include phones{
+    width: 90%;
+    padding: 20px 0;
+  }
 }
 
 .form__btn-submit {

@@ -1,9 +1,29 @@
 .user-info {
-  display: flex;  
+  display: flex;
+  flex-direction: column;
+  
+  @include desktopHd {
+    flex-direction: column;
+    // justify-content: center;
+  }
+
+    @include desktop {
+    flex-direction: row;
+    // justify-content: center;
+  }
+
+
+  @include tablets {
+    flex-direction: column;
+    // justify-content: center;
+  }
+
+
 }
 
 .user__data-table {
-  min-width: 300px;
+  // min-width: 300px;
+  width: 100%;
 }
 
 .user-info__desc {
@@ -14,6 +34,23 @@
   font-weight: bold;
   text-align: right;
   margin-right: 60px;
+  text-align: center;
+  margin-bottom: 30px;
+
+  @include desktop {
+    text-align: right;
+  }
+
+
+  @include tablets {
+    text-align: center;
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  @include phones {
+    margin-bottom: 15px;
+  }
 }
 
 .user-info__username {
@@ -22,5 +59,25 @@
   font-size: 72px;
   font-weight: 900;
   line-height: 60px;
+  text-align: center;
+
+  @include desktopHd {
+    text-align: center;
+    // justify-content: center;
+  }
+
+  @include desktop {
+    text-align: left;
+  }
+
+  @include tablets {
+    text-align: center;
+    // margin-right: 0;
+  }
+
+  @include phones {
+    font-size: 36px;
+    line-height: 30px;
+  }
 }
 

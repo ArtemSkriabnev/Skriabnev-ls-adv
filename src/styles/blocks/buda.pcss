@@ -5,8 +5,21 @@
   // background-position: center center;
   position: relative;
   overflow: hidden;
+
+  @include tablets {
+    background-image: url("../images/content/budda.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+
+
 } 
 
 .buda__container {
   padding-left: 75px;
+
+  @include tablets {
+    padding-left: 0;
+  }
 }

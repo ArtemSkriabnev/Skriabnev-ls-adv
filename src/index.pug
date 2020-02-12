@@ -43,7 +43,7 @@ html(lang="ru")
                         a.menu__link(href="#"+item[1]) #{item[0]}
               .hero__links
                 - var icons = ["insta", "vk", "github"];
-                ul.socials
+                ul.socials.socials-header
                   each item in icons
                     li.socials__item
                       a.socials__link(target="_blank" href="#")
@@ -76,14 +76,14 @@ html(lang="ru")
                       ["Возраст:","34"],
                       ["Родился:","6 апреля 1985"],                  
                     ]
-                  table.user__data
-                    table.user__data-table
-                      each row in rows
-                        tr.user__data-row
-                          td.user__data-row-name #{row[0]}
-                          td.user__data-row-value #{row[1]}
-                          //- each cell in row
-                          //-   td #{cell}
+                  //- table.user__data
+                  table.user__data-table
+                    each row in rows
+                      tr.user__data-row
+                        td.user__data-row-name #{row[0]}
+                        td.user__data-row-value #{row[1]}
+                        //- each cell in row
+                        //-   td #{cell}
 
               .about__right
                 .about__welcome-text Привет, меня зовут
@@ -169,7 +169,7 @@ html(lang="ru")
 
 
         section.contacts
-          .contact__title.title Связаться со мной
+          .title.contact__title Связаться со мной
           form.form
             .form__row
               label.form__label
@@ -207,14 +207,14 @@ html(lang="ru")
       .container.footer__container
         .footer__left
           .footer__copyright &copy 2020
-          .footer__author Артем <br> Скрябнев
-          .footer__author-text Личный сайт <br> веб-разработчика
+          .footer__author Артем Скрябнев
+          .footer__author-text Личный сайт веб-разработчика
         .footer__right
           //- .footer__nav
           nav.menu
-            ul.menu__items
+            ul.menu__items.menu__items-footer
               each item in menu
-                li.menu__item.footer__item-color
+                li.menu__item.menu__item-footer
                   a.menu__link(href="#"+item[1]) #{item[0]}
           .footer__inf
             .footer__inf-column
