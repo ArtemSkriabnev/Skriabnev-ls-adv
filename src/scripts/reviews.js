@@ -73,7 +73,7 @@ new Vue ({
 
       // window.addEventListener("resize", calc);
 
-      console.log(this.slidesPerPage);
+      // console.log("spp = " + this.slidesPerPage);
     }
 
   },

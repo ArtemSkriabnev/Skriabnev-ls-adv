@@ -4,6 +4,10 @@ script(type="text/x-template")#slider-container
     display(
       :works="works",
       :currentWork="currentWork",
+      :firstOutIndex="firstOutIndex",
+      :slidesPerPage="slidesPerPage",
+      :currentIndex="currentIndex",
+
       @slide="handleSlide"
 
     )
@@ -20,10 +24,18 @@ script(type="text/x-template")#slider-display
     .slider__display
       img(:src="currentWork.photo", class="slider__display-pic")
       thumbs(
-        :works="reversedWorks"
+        :works="works"
         :currentWork="currentWork"
+        :firstOutIndex="firstOutIndex"
+        :slidesPerPage="slidesPerPage"
+        @slide="$emit('slide', $event)"
       )
       btns(
+        :works="works"
+        :currentWork="currentWork"
+        :firstOutIndex="firstOutIndex"
+        :slidesPerPage="slidesPerPage"
+        :currentIndex="currentIndex"
         @slide="$emit('slide', $event)"
       )
       
@@ -33,22 +45,30 @@ script(type="text/x-template")#slider-num
 script(type="text/x-template")#slider-thumbs
   ul.slider-thumbs
     li.slider-thumbs__item(
-      v-for="work in works"
-      :class="{active: work.id === currentWork.id}"
+      v-for="n in slidesPerPage"
+      :class="{active: works[n-1+firstOutIndex].id === currentWork.id}"
     )
-      a.slider-thumbs__link
-        img(:src="work.photo" alt="" class="slider-thumbs__pic")
+      button(type="button" @click.prevent="$emit('slide', n-1+firstOutIndex)").slider-thumbs__btn
+        img(:src="works[n-1+firstOutIndex].photo" alt="" class="slider-thumbs__pic")
 
 script(type="text/x-template")#slider-buttons
   .slider__buttons
-    a(@click.prevent="$emit('slide', 'next')" href="#").direction-btn
+     button(type="button" @click.prevent="$emit('slide', 'next')").direction-btn(
+        :class="{unactive: currentIndex === works.length - 1 }"
+        :disabled="currentIndex === works.length - 1"        
+     )
       +icon("arrow-down", "direction-arr direction-arr--next") 
-    a(@click.prevent="$emit('slide', 'prev')" href="#").direction-btn
+     button(type="button" @click.prevent="$emit('slide', 'prev')").direction-btn(
+        :class="{unactive: currentIndex === 0 }"
+        :disabled="currentIndex === 0"
+     )
       +icon("arrow-down", "direction-arr direction-arr--prev") 
       
 script(type="text/x-template")#slider-info
   .slider__info
-    tags()
+    tags(
+            :tags='tagsArray'
+        )
 
     .slider__info-text
       h3.slider__info-title {{currentWork.title}}
@@ -60,7 +80,10 @@ script(type="text/x-template")#slider-info
 
 script(type="text/x-template")#slider-tags
   .slider__tags
-    - var tagsN = ["HTML", "CSS", "javascript"]; 
+    //- - var tagsN = ["HTML", "CSS", "javascript"]; 
     ul.tags
-      each item in tagsN
+      //- each item in tagsN
         li.tags__item #{item}
+      li.tags__item(
+        v-for='tag in tags'
+        ) {{tag}}
