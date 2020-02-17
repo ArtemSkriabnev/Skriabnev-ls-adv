@@ -1,0 +1,125 @@
+body,
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.42;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $text-color;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+button[type="button"] {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.root-wrapper {
+  position: relative;
+}
+
+.page {
+  &__wrapper {
+    background: url("~images/content/hero.jpg") 50%/cover no-repeat;
+    position: relative;
+    min-height: 100vh;
+    padding: 60px 0;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(255, 255, 255, .9);
+    }
+
+    &--dark {
+      padding: 0;
+
+      &:before {
+        background-color: rgba(#2d3c4e, .9);
+      }
+    }
+  }
+
+  &__container {
+    position: relative;
+    max-width: 92.5rem;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  &-title,
+  &-subtitle {
+    color: $text-color;
+    font-weight: 700;
+    line-height: 34px;
+  }
+
+  &-title {
+    font-size: 21px;
+  }
+
+  &-subtitle {
+    font-size: 18px;
+  }
+
+  &__header {
+    display: flex;
+    margin-bottom: 55px;
+  }
+
+  &__row:not(:last-child) {
+    margin-bottom: 30px;
+  }
+
+  &__columns:not(:last-child) {
+    margin-right: 30px;
+  }
+}
